@@ -1,24 +1,8 @@
 <div align="center">
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 120" width="800" height="120">
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#C00000;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#1F3864;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#C00000;stop-opacity:1" />
-      <animateTransform attributeName="gradientTransform" type="translate" values="-800 0;800 0;-800 0" dur="6s" repeatCount="indefinite"/>
-    </linearGradient>
-    <style>
-      .title { font: bold 28px Arial; fill: white; }
-      .sub { font: 14px Arial; fill: #aaaacc; }
-      .fade { animation: fadeIn 2s ease-in forwards; }
-      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    </style>
-  </defs>
-  <rect width="800" height="120" rx="12" fill="url(#grad)"/>
-  <text x="400" y="55" text-anchor="middle" class="title">Change Request Excel Bot</text>
-  <text x="400" y="85" text-anchor="middle" class="sub">Oracle EBS Migration Automation — ServiceNow to Excel in one command</text>
-</svg>
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=200&section=header&text=Change%20Request%20Excel%20Bot&fontSize=40&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Oracle%20EBS%20Migration%20Automation%20%7C%20ServiceNow%20to%20Excel&descAlignY=55&descSize=16)
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&pause=1000&color=C00000&center=true&vCenter=true&width=600&lines=Automates+ServiceNow+change+request+scraping;Downloads+and+parses+Release+Note+attachments;Detects+Object+Types+with+rules+%2B+ML;Generates+formatted+Oracle+EBS+Excel+reports)](https://git.io/typing-svg)
 
 <br/>
 
@@ -34,8 +18,6 @@
 ## Overview
 
 This bot automates the most tedious part of the Oracle EBS migration process — manually collecting change request details from ServiceNow, cross-referencing Release Note attachments, and compiling everything into a formatted Excel report. What normally takes hours of copy-pasting is reduced to a single command.
-
-The bot handles login (including OTP), navigates to your group's change requests, processes each one individually, and delivers a fully formatted Excel file matching the approved migration template.
 
 ---
 
@@ -69,7 +51,7 @@ Generate formatted Excel report
 **Browser Automation**
 - Handles multi-step login — email, password, and manual OTP pause
 - Navigates ServiceNow's iframe-heavy UI reliably
-- Searches each CHG number individually, downloads its Release Note
+- Searches each CHG number individually and downloads its Release Note
 
 **Smart Object Type Detection**
 - Rule-based engine covers 200+ known variations (PKS, PKB, FMB, LDT, RDF, Personalization Doc, java class, Steps, etc.)
@@ -152,8 +134,6 @@ The bot saves `Change_Requests_Final_DD-Mon-YYYY.xlsx` in the project folder.
 
 ## Improving the ML Model
 
-The model learns what "Object Type" text looks like from your own release notes.
-
 **Step 1 — Extract unique cell values**
 ```bash
 python extract_cells_for_labeling.py "path/to/release_notes_folder"
@@ -171,8 +151,6 @@ python merge_labeled_data.py
 python train_object_type_model.py
 ```
 
-The new `object_type_model.pkl` is loaded automatically next time you run the bot.
-
 ---
 
 ## Notes
@@ -180,7 +158,7 @@ The new `object_type_model.pkl` is loaded automatically next time you run the bo
 - OTP entry is always manual — MFA cannot be automated
 - Credentials are stored in plain text in `open_chrome.py` — move them to a `.env` file before committing to any shared repository
 - If a Release Note has a non-Excel attachment (e.g. PNG), the bot pauses and asks you to provide the file manually or skip
-- The `(ML)` suffix appears on object types detected by the classifier rather than the rule engine — useful for spotting and verifying new patterns
+- The `(ML)` suffix appears on object types detected by the classifier — useful for spotting and verifying new patterns
 
 ---
 
@@ -195,15 +173,6 @@ The new `object_type_model.pkl` is loaded automatically next time you run the bo
 
 <div align="center">
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 60" width="600" height="60">
-  <defs>
-    <linearGradient id="footergrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#1F3864"/>
-      <stop offset="100%" style="stop-color:#C00000"/>
-    </linearGradient>
-  </defs>
-  <rect width="600" height="60" rx="8" fill="url(#footergrad)"/>
-  <text x="300" y="35" text-anchor="middle" font-family="Arial" font-size="13" fill="white">Built for Oracle EBS Migration at Motherson</text>
-</svg>
+![footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer&animation=twinkling)
 
 </div>
