@@ -1,0 +1,426 @@
+import asyncio
+import os
+import openpyxl
+from playwright.async_api import async_playwright
+from openpyxl.styles import Font , PatternFill , Alignment , Border , Side
+from openpyxl.utils import get_column_letter
+from datetime import datetime   
+
+# ############ these will be all the necessary info ########################################################
+Email = ""
+Password = ""
+Email_Selector = "input[type='text']"
+Email_NXT_button = "button[type='submit']"
+url = ""
+############################################################################################################
+
+async def find_and_click_change(page, selector):
+    try:
+        el = await page.wait_for_selector(selector, timeout=5000)
+        await el.click()
+        return True
+    except:
+        pass
+
+    for frame in page.frames:
+        try:
+            await frame.wait_for_load_state("domcontentloaded")
+            el = await frame.wait_for_selector(selector, timeout=10000)
+            await el.click()
+            return True
+        except:
+            continue
+
+
+def is_known_object_type(value):
+    if not value:
+        return False
+    val = str(value).strip().lower()
+    val = val.replace("_", " ").replace("-", " ")
+    val = " ".join(val.split())
+
+    # Package Spec — pkg/package + spec/specification
+    if ("pkg" in val or "package" or "pks" or "PKS" in val) and ("spec" in val or "specification" in val):
+        return True
+
+    # Package Body — pkg/package + body/bdy
+    if ("pkg" in val or "package" or "pkb" or "PKB" in val) and ("body" in val or "bdy" in val):
+        return True
+
+    # View
+    if val in ("view", "views", "vw", "v" , "View"):
+        return True
+
+    # Table
+    if val in ("table", "tables", "tbl", "tab" , "Alter" , "ALTER" , "TABLE"):
+        return True
+
+    # RDF (Oracle Reports)
+    if val in ("rdf", "rdf report", "report", "reports", "oracle report" ,"RDF"):
+        return True
+
+    # FMB (Oracle Forms)
+    if val in ("fmb", "form", "forms", "oracle form", "oracle forms", "FMB"):
+        return True
+
+    # RTF (template)
+    if val in ("rtf", "rtf template", "template", "templates" ,"RTF"):
+        return True
+
+    # XML
+    if val in ("xml", "xml file", "xml template" ,"XML"):
+        return True
+
+    # Function
+    if val in ("function", "functions", "fnc", "fn", "func" ,"Function"):
+        return True
+
+    # Script
+    if val in ("script", "scripts", "sql script", "sql", "shell script", "shell" , "Script"):
+        return True
+
+    # Procedure
+    if val in ("procedure", "procedures", "proc", "prc", "sp", "stored procedure"):
+        return True
+
+    # Trigger
+    if val in ("trigger", "triggers", "trg"):
+        return True
+
+    # Sequence
+    if val in ("sequence", "sequences", "seq"):
+        return True
+
+    # Index
+    if val in ("index", "indexes", "idx"):
+        return True
+
+    # Synonym
+    if val in ("synonym", "synonyms", "syn"):
+        return True
+
+    # Concurrent Program
+    if "concurrent" in val and "program" in val:
+        return True
+
+    # Workflow
+    if val in ("workflow", "workflows", "wf", "WF" , "Workflows"):
+        return True
+    
+    #Forms Personalization
+    if val in ("Personalization" , "Forms Personalization" , "Personalization Doc"):
+       return True
+    
+    if val in ("pll" , "PLL"):
+        return True
+    
+    return False
+
+
+async def run():
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=False)
+        context = await browser.new_context()
+        await context.clear_cookies()
+        page = await browser.new_page()
+        await page.goto(url)
+        await page.wait_for_timeout(2000)
+
+        # Login
+        try:
+            await page.wait_for_selector(Email_Selector, timeout=5000)
+            await page.fill(Email_Selector, Email)
+            await page.click(Email_NXT_button)
+            await page.wait_for_selector("input[name='identifier']")
+            await page.fill("input[name='identifier']", Email)
+            await page.click("input[type='submit']")
+            await page.wait_for_timeout(2000)
+            await page.wait_for_selector("input[name='credentials.passcode']")
+            await page.fill("input[name='credentials.passcode']", Password)
+            await page.click("input[type='submit']")
+        except:
+            print("Session active — skipped email/password")
+
+        print("\n" + "="*50)
+        print("  OTP sent — enter it in the browser window.")
+        print("  Once you are logged in, come back here")
+        print("  and press ENTER to continue.")
+        print("="*50)
+        input("  Press ENTER after logging in... ")
+        print("  ✓ Logged in\n")
+
+        # Navigate to Change → My Group Change → >>
+        await find_and_click_change(page, "a:has-text('Change')")
+        await page.wait_for_timeout(2000)
+
+        await find_and_click_change(page, "a[aria-label*='My Group Change']")
+        await page.wait_for_timeout(5000)
+
+        for frame in page.frames:
+            try:
+                await frame.evaluate("document.querySelector(\"button[name='vcr_last']\").click()")
+                print("  ✓ Clicked >>")
+                break
+            except:
+                continue
+
+        await page.wait_for_timeout(3000)
+
+        # Scrape In Progress rows
+        records = []
+        for frame in page.frames:
+            rows = await frame.query_selector_all("tr[data-type='list2_row']")
+            if not rows:
+                continue
+            print(f"Found {len(rows)} rows")
+            for row in rows:
+                cells = await row.query_selector_all("td.vt")
+                texts = [(await c.inner_text()).strip() for c in cells]
+                if "In Progress" in texts:
+                    records.append(texts)
+                    print(f"  In Progress: {texts[0]} / {texts[5]}")
+            break
+
+        print(f"\nTotal In Progress: {len(records)}\n")
+
+        # Process each CHG
+        download_path = os.path.join(os.getcwd(), "downloads")
+        os.makedirs(download_path, exist_ok=True)
+
+        search_selector = "div[aria-label='Global'] input[aria-label='Search']"
+
+        for record in records:
+            chg_number = record[5]
+            ctask_number = record[0]
+            print(f"\n→ Processing {chg_number} / {ctask_number}")
+
+            # Click a neutral spot to deselect any download focus, then Escape to close dropdown
+            try:
+                await page.mouse.click(50, 50)
+            except:
+                pass
+            await page.wait_for_timeout(500)
+
+            await page.keyboard.press("Escape")
+            for frame in page.frames:
+                try:
+                    await frame.keyboard.press("Escape")
+                except:
+                    pass
+            await page.wait_for_timeout(1000)
+
+            # Search for CHG — check main page and iframes
+            el = None
+            try:
+                el = await page.wait_for_selector(search_selector, timeout=8000)
+            except:
+                print("  Not on main page, checking iframes...")
+                for frame in page.frames:
+                    try:
+                        el = await frame.wait_for_selector(search_selector, timeout=5000)
+                        print(f"  ✓ Found search bar in iframe: {frame.url[:50]}")
+                        break
+                    except:
+                        continue
+
+            if not el:
+                print(f"  ❌ Could not find search bar for {chg_number} — skipping")
+                continue
+
+            await el.click(click_count=3)   # select existing text
+            await el.fill(chg_number)       # replace with new CHG number
+            await el.press("Enter")
+            await page.wait_for_timeout(5000)
+            print(f"  URL after search: {page.url}")
+
+            # Click neutral spot + Escape again to close "Exact Match" dropdown after Enter
+            try:
+                await page.mouse.click(500, 50)
+            except:
+                pass
+            await page.wait_for_timeout(500)
+            await page.keyboard.press("Escape")
+            for frame in page.frames:
+                try:
+                    await frame.keyboard.press("Escape")
+                except:
+                    pass
+            await page.wait_for_timeout(1000)
+            print(f"  ✓ On CHG page")
+
+            # Scrape Requested By and Short Description
+            requested_by = ""
+            short_description = ""
+            for frame in page.frames:
+                try:
+                    rb_el = await frame.wait_for_selector("input[name='change_request.requested_by_label']", timeout=5000)
+                    requested_by = await rb_el.get_attribute("value")
+                    sd_el = await frame.wait_for_selector("input[aria-label='Short description']", timeout=3000)
+                    short_description = await sd_el.get_attribute("value")
+                    print(f"  Requested By: {requested_by}")
+                    print(f"  Short Description: {short_description}")
+                    break
+                except:
+                    continue
+
+            # Download attachment (only if it's an Excel file)
+            downloaded_file = None
+            for frame in page.frames:
+                try:
+                    download_link = await frame.wait_for_selector("a[aria-label^='Download']", timeout=5000)
+                    filename_attr = await download_link.get_attribute("aria-label") or ""
+                    print(f"  Attachment found: {filename_attr}")
+
+                    if not filename_attr.lower().endswith(('.xlsx', '.xls')):
+                        print(f"  ⚠️  Attachment is not an Excel file: {filename_attr}")
+                        downloaded_file = None
+                        break
+
+                    async with page.expect_download() as download_info:
+                        await download_link.click()
+                    download = await download_info.value
+                    downloaded_file = os.path.join(download_path, chg_number + download.suggested_filename)
+                    await download.save_as(downloaded_file)
+                    await page.wait_for_timeout(2000)
+                    print(f"  ✓ Downloaded: {download.suggested_filename}")
+                    break
+                except:
+                    continue
+
+            # If no valid Excel found, ask for manual upload
+            if not downloaded_file:
+                print(f"\n  ⚠️  No valid Excel attachment found for {chg_number}")
+                print(f"  Please manually save the Release Note (.xlsx) for {chg_number}")
+                print(f"  into this folder: {download_path}")
+                manual_file = input(f"  Enter the filename (or press ENTER to skip): ").strip()
+                if manual_file:
+                    downloaded_file = os.path.join(download_path, manual_file)
+                    if not os.path.exists(downloaded_file):
+                        print(f"  ❌ File not found, skipping {chg_number}")
+                        downloaded_file = None
+                else:
+                    downloaded_file = None
+
+            # Read Excel
+            developer_name = ""
+            object_types = []
+            total_objects = 0
+            remark = ""
+
+            if downloaded_file and os.path.exists(downloaded_file):
+                wb = openpyxl.load_workbook(downloaded_file)
+                ws = wb.active
+                in_object_table = False
+
+                for row in ws.iter_rows():
+                    row_values = [c.value for c in row]
+
+                    for i, cell_val in enumerate(row_values):
+                        if cell_val and "Developer Name" in str(cell_val):
+                            developer_name = str(row_values[i + 1] or "")
+                        if cell_val and "Object Migration List" in str(cell_val):
+                            in_object_table = True
+
+                    if in_object_table:
+                        for cell_val in row_values:
+                            if is_known_object_type(cell_val):
+                                object_types.append(str(cell_val).strip())
+                                total_objects += 1
+
+                wb.close()
+                print(f"  Developer: {developer_name}")
+                print(f"  Object Types: {object_types}")
+                print(f"  Total Objects: {total_objects}")
+            else:
+                remark = "Please share the Release Note"
+                print(f"  ❌ No attachment — remark added")
+
+            # Add all data to record
+            record.append(requested_by)
+            record.append(short_description)
+            record.append(developer_name)
+            record.append(", ".join(object_types))
+            record.append(total_objects)
+            record.append(remark)
+
+        print("\n✅ All records collected:")
+        for r in records:
+            print(r)
+        
+        HEADERS = [
+            ("S.No", 8), ("Change Request No.", 20), ("CTASK No.", 20),
+            ("Developer", 20), ("Requested By", 20), ("CR Status", 20),
+            ("Migration Date", 18), ("Object Type", 30), ("Total Objects Count", 10),
+            ("Downtime Required\n(Y/N)", 20), ("Middle-Tier Restart\nRequired (Y/N)", 20),
+            ("Technical Team\nAvailability", 14), ("Validation\nStatus", 12),
+            ("Is Critical /\nShowstopper", 12), ("Release Note\nShared (Y/N)", 12),
+            ("Backout Plan\nAvailable (Y/N)", 12), ("Remarks", 22), ("Description", 35),
+        ]
+ 
+        TITLE = "Finalized List of Approved Change Requests for Scheduled Oracle EBS Migration"
+ 
+        wb_out = openpyxl.Workbook()
+        ws_out = wb_out.active
+        ws_out.title = "Change Requests"
+ 
+        title_fill = PatternFill("solid", fgColor="C00000")
+        header_fill = PatternFill("solid", fgColor="1F3864")
+        title_font = Font(name="Calibri", bold=True, size=14, color="FFFFFF")
+        header_font = Font(name="Calibri", bold=True, size=11 , color="FFFFFF")
+        data_font = Font(name="Calibri", size=10)
+        center = Alignment(horizontal="center", vertical="center", wrap_text=True)
+        left_align = Alignment(horizontal="left", vertical="center", wrap_text=True)
+        thin = Border(left=Side(style="thin"), right=Side(style="thin"),
+                       top=Side(style="thin"), bottom=Side(style="thin"))
+ 
+        num_cols = len(HEADERS)
+        ws_out.merge_cells(start_row=1, start_column=1, end_row=1, end_column=num_cols)
+        c = ws_out.cell(1, 1, TITLE)
+        c.font, c.fill, c.alignment = title_font, title_fill, center
+        ws_out.row_dimensions[1].height = 26
+ 
+        for ci, (label, _) in enumerate(HEADERS, 1):
+            c = ws_out.cell(2, ci, label)
+            c.font, c.fill, c.alignment, c.border = header_font, header_fill, center, thin
+        ws_out.row_dimensions[2].height = 32
+ 
+        for ci, (_, w) in enumerate(HEADERS, 1):
+            ws_out.column_dimensions[get_column_letter(ci)].width = w
+ 
+        today_str = datetime.now().strftime("%d-%b-%y")
+ 
+        for ri, rec in enumerate(records, 1):
+            ctask_no = rec[0] if len(rec) > 0 else ""
+            chg_no = rec[5] if len(rec) > 5 else ""
+            requested_by = rec[11] if len(rec) > 11 else ""
+            short_description = rec[12] if len(rec) > 12 else ""
+            developer = rec[13] if len(rec) > 13 else ""
+            object_type = rec[14] if len(rec) > 14 else ""
+            total_objects = rec[15] if len(rec) > 15 else ""
+            remark = rec[16] if len(rec) > 16 else ""
+ 
+            row_data = [
+                ri, chg_no, ctask_no, developer, requested_by, "Approved",
+                today_str, object_type, total_objects, "N", "N",
+                "Not Required", "Validated", "No", "Y", "N",
+                remark, short_description,
+            ]
+ 
+            for ci, val in enumerate(row_data, 1):
+                c = ws_out.cell(ri + 3, ci, val)
+                align = left_align if ci in (17, 18) else center
+                c.font, c.alignment, c.border = data_font, align, thin
+ 
+            ws_out.row_dimensions[ri + 3].height = 24
+        
+        file_date_str = datetime.now().strftime("%d-%b-%Y")
+        excel_output_path = os.path.join(os.getcwd(), f"Change_Requests_Final_{file_date_str}.xlsx")
+        wb_out.save(excel_output_path)
+        print(f"✅ Final Excel saved: {excel_output_path}")
+
+
+        input("\nPress ENTER to close...")
+        await browser.close()
+
+if __name__ == "__main__":
+    asyncio.run(run())
