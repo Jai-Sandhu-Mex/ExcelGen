@@ -33,9 +33,10 @@
 <div align="center">
 <a href="https://github.com/Anmol-Baranwal/GIFs-For-Readme"><img src="https://forthebadge.com/images/badges/built-with-love.svg" width="130" alt="made with love  markdown badge" ></a>  <a href="https://github.com/Anmol-Baranwal/GIFs-For-Readme"><img src="https://forthebadge.com/images/badges/built-with-swag.svg" width="130" alt="made with swag markdown badge"></a> 
 <a href="https://github.com/Anmol-Baranwal/GIFs-For-Readme"><img src="https://forthebadge.com/images/badges/open-source.svg" width="130" height="30" alt="open source  markdown badge"></a>  
-<br><a href="https://github.com/Anmol-Baranwal/GIFs-For-Readme"><img src="https://forthebadge.com/images/badges/made-with-markdown.svg" width="230" height="30" alt="made with markdown badge"></a> 
+<br>
 </div>
-## Overview
+
+-----------------------------------------------------------------------------------------------------------------------------
 
 This bot automates the most tedious part of the Oracle EBS migration process — manually collecting change request details from ServiceNow, cross-referencing Release Note attachments, and compiling everything into a formatted Excel report. What normally takes hours of copy-pasting is reduced to a single command.
 
