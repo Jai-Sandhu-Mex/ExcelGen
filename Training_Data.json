@@ -1,0 +1,1374 @@
+[
+    {
+        "text": "XXMSSL_INVOICE_PKG.pkb",
+        "label": "Package Body"
+    },
+    {
+        "text": "XXMSSL_INVOICE_PKG.pks",
+        "label": "Package Specification"
+    },
+    {
+        "text": "XXMSSL_DUE_QTY_REP.rdf",
+        "label": "Report"
+    },
+    {
+        "text": "XXMSSL_CUSTOM_FORM.fmb",
+        "label": "Form"
+    },
+    {
+        "text": "XXMSSL_CUSTOM_LIB.pll",
+        "label": "Library"
+    },
+    {
+        "text": "XXMSSL_CUSTOM_MENU.mmb",
+        "label": "Menu"
+    },
+    {
+        "text": "XXMSSL_PAYMENT_PROC.prc",
+        "label": "Procedure"
+    },
+    {
+        "text": "XXMSSL_PAYMENT.xml",
+        "label": "XML Data Template"
+    },
+    {
+        "text": "XXMSSL_PAYMENT.rtf",
+        "label": "RTF Template"
+    },
+    {
+        "text": "XXMSSL_PAYMENT_XDO.ldt",
+        "label": "XML Publisher Layout"
+    },
+
+    {
+        "text": "XXAP_INVOICE_PKG.pkb",
+        "label": "Package Body"
+    },
+    {
+        "text": "XXAP_PAYMENT_PKG.pkb",
+        "label": "Package Body"
+    },
+    {
+        "text": "XXPO_VENDOR_PKG.pkb",
+        "label": "Package Body"
+    },
+    {
+        "text": "XXAR_CUSTOMER_PKG.pkb",
+        "label": "Package Body"
+    },
+    {
+        "text": "XXGL_JOURNAL_PKG.pkb",
+        "label": "Package Body"
+    },
+    {
+        "text": "XXINV_ITEM_PKG.pkb",
+        "label": "Package Body"
+    },
+
+    {
+        "text": "XXAP_INVOICE_PKG.pks",
+        "label": "Package Specification"
+    },
+    {
+        "text": "XXAP_PAYMENT_PKG.pks",
+        "label": "Package Specification"
+    },
+    {
+        "text": "XXPO_VENDOR_PKG.pks",
+        "label": "Package Specification"
+    },
+    {
+        "text": "XXAR_CUSTOMER_PKG.pks",
+        "label": "Package Specification"
+    },
+
+    {
+        "text": "XXAP_IMPORT_INVOICES.prc",
+        "label": "Procedure"
+    },
+    {
+        "text": "XXPO_VALIDATE_VENDOR.prc",
+        "label": "Procedure"
+    },
+    {
+        "text": "XXAR_UPDATE_CUSTOMER.prc",
+        "label": "Procedure"
+    },
+    {
+        "text": "XXGL_CREATE_JOURNAL.prc",
+        "label": "Procedure"
+    },
+
+    {
+        "text": "XXAP_PAYMENT.rdf",
+        "label": "Report"
+    },
+    {
+        "text": "XXPO_VENDOR.rdf",
+        "label": "Report"
+    },
+    {
+        "text": "XXAR_AGING.rdf",
+        "label": "Report"
+    },
+    {
+        "text": "XXGL_BALANCE.rdf",
+        "label": "Report"
+    },
+
+    {
+        "text": "XXAP_PAYMENT.fmb",
+        "label": "Form"
+    },
+    {
+        "text": "XXPO_VENDOR.fmb",
+        "label": "Form"
+    },
+    {
+        "text": "XXAR_CUSTOMER.fmb",
+        "label": "Form"
+    },
+
+    {
+        "text": "XX_CUSTOM_LIBRARY.pll",
+        "label": "Library"
+    },
+    {
+        "text": "COMMON_LIBRARY.pll",
+        "label": "Library"
+    },
+
+    {
+        "text": "XX_MAIN_MENU.mmb",
+        "label": "Menu"
+    },
+    {
+        "text": "FINANCE_MENU.mmb",
+        "label": "Menu"
+    },
+
+    {
+        "text": "XX_RESPONSIBILITY.ldt",
+        "label": "LDT"
+    },
+    {
+        "text": "XX_LOOKUP_VALUES.ldt",
+        "label": "LDT"
+    },
+
+    {
+        "text": "XX_PAYMENT_TEMPLATE.xml",
+        "label": "XML Data Template"
+    },
+    {
+        "text": "XML_DATA_TEMPLATE.xml",
+        "label": "XML Data Template"
+    },
+
+    {
+        "text": "XX_PAYMENT_LAYOUT.rtf",
+        "label": "RTF Template"
+    },
+    {
+        "text": "INVOICE_LAYOUT.rtf",
+        "label": "RTF Template"
+    },
+
+    {
+        "text": "XX_PAYMENT_XDO.ldt",
+        "label": "XML Publisher Layout"
+    },
+    {
+        "text": "REPORT_XDO.ldt",
+        "label": "XML Publisher Layout"
+    },
+
+    {
+        "text": "XX_INTERFACE.sql",
+        "label": "SQL Script"
+    },
+    {
+        "text": "XX_DDL.sql",
+        "label": "SQL Script"
+    },
+
+    {
+        "text": "Oracle Package Body",
+        "label": "Package Body"
+    },
+    {
+        "text": "PLSQL Package Body",
+        "label": "Package Body"
+    },
+    {
+        "text": "PKB File",
+        "label": "Package Body"
+    },
+
+    {
+        "text": "Oracle Package Specification",
+        "label": "Package Specification"
+    },
+    {
+        "text": "Package Header",
+        "label": "Package Specification"
+    },
+
+    {
+        "text": "Stored Procedure",
+        "label": "Procedure"
+    },
+    {
+        "text": "Database Procedure",
+        "label": "Procedure"
+    },
+
+    {
+        "text": "Oracle Report",
+        "label": "Report"
+    },
+    {
+        "text": "Custom Report",
+        "label": "Report"
+    },
+
+    {
+        "text": "Oracle Form",
+        "label": "Form"
+    },
+    {
+        "text": "Forms Builder Module",
+        "label": "Form"
+    },
+
+    {
+        "text": "Oracle Library",
+        "label": "Library"
+    },
+    {
+        "text": "PLL Library",
+        "label": "Library"
+    },
+
+    {
+        "text": "Oracle Menu",
+        "label": "Menu"
+    },
+    {
+        "text": "Menu Object",
+        "label": "Menu"
+    },
+
+    {
+        "text": "XML Data Template",
+        "label": "XML Data Template"
+    },
+    {
+        "text": "BI Publisher Data Template",
+        "label": "XML Data Template"
+    },
+
+    {
+        "text": "RTF Template",
+        "label": "RTF Template"
+    },
+    {
+        "text": "BI Publisher Template",
+        "label": "RTF Template"
+    },
+
+    {
+        "text": "XML Publisher Layout",
+        "label": "XML Publisher Layout"
+    },
+    {
+        "text": "XDO Layout",
+        "label": "XML Publisher Layout"
+    },
+
+    {
+        "text": "FNDLOAD File",
+        "label": "LDT"
+    },
+    {
+        "text": "Loader File",
+        "label": "LDT"
+    },
+
+    {
+        "text": "SQL Script",
+        "label": "SQL Script"
+    },
+    {
+        "text": "DDL Script",
+        "label": "SQL Script"
+    },
+
+    {
+        "text": "Concurrent Program Definition",
+        "label": "Concurrent Program"
+    },
+    {
+        "text": "Concurrent Request Program",
+        "label": "Concurrent Program"
+    },   
+  {
+    "text": "XXAP_INVOICE_TRG.trg",
+    "label": "Trigger"
+  },
+  {
+    "text": "XXAR_CUSTOMER_TRG.trg",
+    "label": "Trigger"
+  },
+  {
+    "text": "XXPO_VENDOR_TRG.trg",
+    "label": "Trigger"
+  },
+  {
+    "text": "XXINV_ITEM_TRG.trg",
+    "label": "Trigger"
+  },
+  {
+    "text": "XXGL_PERIOD_TRG.trg",
+    "label": "Trigger"
+  },
+  {
+    "text": "XXAP_INVOICE_FUNC.fnc",
+    "label": "Function"
+  },
+  {
+    "text": "XXAR_CUSTOMER_FUNC.fnc",
+    "label": "Function"
+  },
+  {
+    "text": "XXPO_VENDOR_FUNC.fnc",
+    "label": "Function"
+  },
+  {
+    "text": "XXINV_ITEM_FUNC.fnc",
+    "label": "Function"
+  },
+  {
+    "text": "XXGL_BALANCE_FUNC.fnc",
+    "label": "Function"
+  },
+  {
+    "text": "XXAP_INVOICE_VIEW.vw",
+    "label": "View"
+  },
+  {
+    "text": "XXAR_CUSTOMER_VIEW.vw",
+    "label": "View"
+  },
+  {
+    "text": "XXPO_VENDOR_VIEW.vw",
+    "label": "View"
+  },
+  {
+    "text": "XXINV_ITEM_VIEW.vw",
+    "label": "View"
+  },
+  {
+    "text": "XXGL_BALANCE_VIEW.vw",
+    "label": "View"
+  },
+  {
+    "text": "XXAP_INVOICE_VIEW.sql",
+    "label": "View"
+  },
+  {
+    "text": "XXAR_CUSTOMER_VIEW.sql",
+    "label": "View"
+  },
+  {
+    "text": "XXPO_VENDOR_VIEW.sql",
+    "label": "View"
+  },
+  {
+    "text": "XXAP_INVOICE_SEQ.seq",
+    "label": "Sequence"
+  },
+  {
+    "text": "XXAR_CUSTOMER_SEQ.seq",
+    "label": "Sequence"
+  },
+  {
+    "text": "XXPO_VENDOR_SEQ.seq",
+    "label": "Sequence"
+  },
+  {
+    "text": "XXINV_ITEM_SEQ.seq",
+    "label": "Sequence"
+  },
+  {
+    "text": "XXGL_PERIOD_SEQ.seq",
+    "label": "Sequence"
+  },
+  {
+    "text": "XXAP_CUSTOMER_SYNONYM.syn",
+    "label": "Synonym"
+  },
+  {
+    "text": "XXAR_VENDOR_SYNONYM.syn",
+    "label": "Synonym"
+  },
+  {
+    "text": "XXPO_TRANSACTION_SYNONYM.syn",
+    "label": "Synonym"
+  },
+  {
+    "text": "XXINV_ITEM_SYNONYM.syn",
+    "label": "Synonym"
+  },
+  {
+    "text": "XXGL_LEDGER_SYNONYM.syn",
+    "label": "Synonym"
+  },
+  {
+    "text": "XXAP_DATA_PACKAGE.pkb",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXAP_LOADER_PACKAGE.pkb",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXAP_IMPORT_PACKAGE.pkb",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXAP_EXPORT_PACKAGE.pkb",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXAP_VALIDATION_PACKAGE.pkb",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXAP_DATA_PACKAGE.pks",
+    "label": "Package Specification"
+  },
+  {
+    "text": "XXAP_LOADER_PACKAGE.pks",
+    "label": "Package Specification"
+  },
+  {
+    "text": "XXAP_IMPORT_PACKAGE.pks",
+    "label": "Package Specification"
+  },
+  {
+    "text": "XXAP_EXPORT_PACKAGE.pks",
+    "label": "Package Specification"
+  },
+  {
+    "text": "XXAP_VALIDATION_PACKAGE.pks",
+    "label": "Package Specification"
+  },
+  {
+    "text": "XXAP_IMPORT_DATA.prc",
+    "label": "Procedure"
+  },
+  {
+    "text": "XXAP_EXPORT_DATA.prc",
+    "label": "Procedure"
+  },
+  {
+    "text": "XXAP_VALIDATE_DATA.prc",
+    "label": "Procedure"
+  },
+  {
+    "text": "XXAP_PROCESS_DATA.prc",
+    "label": "Procedure"
+  },
+  {
+    "text": "XXAP_LOAD_DATA.prc",
+    "label": "Procedure"
+  },
+  {
+    "text": "XXAP_EMPLOYEE_TBL.sql",
+    "label": "Table"
+  },
+  {
+    "text": "XXAR_CUSTOMER_TBL.sql",
+    "label": "Table"
+  },
+  {
+    "text": "XXPO_VENDOR_TBL.sql",
+    "label": "Table"
+  },
+  {
+    "text": "XXINV_ITEM_TBL.sql",
+    "label": "Table"
+  },
+  {
+    "text": "XXGL_LEDGER_TBL.sql",
+    "label": "Table"
+  },
+  {
+    "text": "XXAP_CUSTOMER.idx",
+    "label": "Index"
+  },
+  {
+    "text": "XXAR_CUSTOMER.idx",
+    "label": "Index"
+  },
+  {
+    "text": "XXPO_VENDOR.idx",
+    "label": "Index"
+  },
+  {
+    "text": "XXINV_ITEM.idx",
+    "label": "Index"
+  },
+  {
+    "text": "XXGL_ACCOUNT.idx",
+    "label": "Index"
+  },
+  {
+    "text": "XXAP_PAYMENT_PKG_BODY",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXAR_CUSTOMER_PACKAGE_BODY",
+    "label": "Package Body"
+  },
+  {
+    "text": "PKG BODY FOR CUSTOMER PROCESS",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXAP_PAYMENT_PACKAGE_SPEC",
+    "label": "Package Specification"
+  },
+  {
+    "text": "XXAR_CUSTOMER_PACKAGE_HEADER",
+    "label": "Package Specification"
+  },
+  {
+    "text": "PACKAGE HEADER",
+    "label": "Package Specification"
+  },
+  {
+    "text": "BEFORE INSERT TRIGGER",
+    "label": "Trigger"
+  },
+  {
+    "text": "AFTER UPDATE TRIGGER",
+    "label": "Trigger"
+  },
+  {
+    "text": "DATABASE TRIGGER",
+    "label": "Trigger"
+  },
+  {
+    "text": "CUSTOM TRIGGER",
+    "label": "Trigger"
+  },
+  {
+    "text": "DATABASE FUNCTION",
+    "label": "Function"
+  },
+  {
+    "text": "PLSQL FUNCTION",
+    "label": "Function"
+  },
+  {
+    "text": "FUNCTION OBJECT",
+    "label": "Function"
+  },
+  {
+    "text": "CUSTOM FUNCTION",
+    "label": "Function"
+  },
+  {
+    "text": "DATABASE VIEW",
+    "label": "View"
+  },
+  {
+    "text": "VIEW OBJECT",
+    "label": "View"
+  },
+  {
+    "text": "CUSTOM VIEW",
+    "label": "View"
+  },
+  {
+    "text": "ORACLE VIEW",
+    "label": "View"
+  },
+  {
+    "text": "DATABASE TABLE",
+    "label": "Table"
+  },
+  {
+    "text": "TABLE OBJECT",
+    "label": "Table"
+  },
+  {
+    "text": "CUSTOM TABLE",
+    "label": "Table"
+  },
+  {
+    "text": "APPLICATION TABLE",
+    "label": "Table"
+  },
+  {
+    "text": "DATABASE INDEX",
+    "label": "Index"
+  },
+  {
+    "text": "INDEX OBJECT",
+    "label": "Index"
+  },
+  {
+    "text": "CUSTOM INDEX",
+    "label": "Index"
+  },
+  {
+    "text": "UNIQUE INDEX",
+    "label": "Index"
+  },
+  {
+    "text": "DATABASE SEQUENCE",
+    "label": "Sequence"
+  },
+  {
+    "text": "SEQUENCE OBJECT",
+    "label": "Sequence"
+  },
+  {
+    "text": "AUTO NUMBER SEQUENCE",
+    "label": "Sequence"
+  },
+  {
+    "text": "CUSTOM SEQUENCE",
+    "label": "Sequence"
+  },
+  {
+    "text": "DATABASE SYNONYM",
+    "label": "Synonym"
+  },
+  {
+    "text": "PUBLIC SYNONYM",
+    "label": "Synonym"
+  },
+  {
+    "text": "PRIVATE SYNONYM",
+    "label": "Synonym"
+  },
+  {
+    "text": "SYNONYM OBJECT",
+    "label": "Synonym"
+  },
+  {
+    "text": "XXAP_WORKFLOW.wft",
+    "label": "Workflow"
+  },
+  {
+    "text": "XXAR_NOTIFICATION.wft",
+    "label": "Workflow"
+  },
+  {
+    "text": "XXPO_APPROVAL.wft",
+    "label": "Workflow"
+  },
+  {
+    "text": "XXINV_REORDER.wft",
+    "label": "Workflow"
+  },
+  {
+    "text": "XXGL_CLOSE_PERIOD.wft",
+    "label": "Workflow"
+  },
+  {
+    "text": "XXHR_EMPLOYEE_PKG.pkb",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXHR_PAYROLL_PKG.pkb",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXFA_ASSET_PKG.pkb",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXBOM_COMPONENT_PKG.pkb",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXWIP_JOB_PKG.pkb",
+    "label": "Package Body"
+  },
+  {
+    "text": "XXHR_EMPLOYEE_PKG.pks",
+    "label": "Package Specification"
+  },
+  {
+    "text": "XXHR_PAYROLL_PKG.pks",
+    "label": "Package Specification"
+  },
+  {
+    "text": "XXFA_ASSET_PKG.pks",
+    "label": "Package Specification"
+  },
+  {
+    "text": "XXBOM_COMPONENT_PKG.pks",
+    "label": "Package Specification"
+  },
+  {
+    "text": "XXWIP_JOB_PKG.pks",
+    "label": "Package Specification"
+  },
+
+  {
+    "text": "XXHR_CREATE_EMPLOYEE.prc",
+    "label": "Procedure"
+  },
+  {
+    "text": "XXHR_UPDATE_PAYROLL.prc",
+    "label": "Procedure"
+  },
+  {
+    "text": "XXFA_TRANSFER_ASSET.prc",
+    "label": "Procedure"
+  },
+  {
+    "text": "XXBOM_CREATE_COMPONENT.prc",
+    "label": "Procedure"
+  },
+  {
+    "text": "XXWIP_CLOSE_JOB.prc",
+    "label": "Procedure"
+  },
+
+  {
+    "text": "XXHR_GET_EMPLOYEE.fnc",
+    "label": "Function"
+  },
+  {
+    "text": "XXFA_GET_ASSET_COST.fnc",
+    "label": "Function"
+  },
+  {
+    "text": "XXPO_VALIDATE_PO.fnc",
+    "label": "Function"
+  },
+  {
+    "text": "XXAR_GET_BALANCE.fnc",
+    "label": "Function"
+  },
+  {
+    "text": "XXGL_PERIOD_STATUS.fnc",
+    "label": "Function"
+  },
+
+  {
+    "text": "XXHR_EMPLOYEE_AUDIT.trg",
+    "label": "Trigger"
+  },
+  {
+    "text": "XXFA_ASSET_AUDIT.trg",
+    "label": "Trigger"
+  },
+  {
+    "text": "XXPO_VENDOR_INSERT.trg",
+    "label": "Trigger"
+  },
+  {
+    "text": "XXAR_CUSTOMER_UPDATE.trg",
+    "label": "Trigger"
+  },
+  {
+    "text": "XXGL_LEDGER_AUDIT.trg",
+    "label": "Trigger"
+  },
+
+  {
+    "text": "XXHR_EMPLOYEE.rdf",
+    "label": "Report"
+  },
+  {
+    "text": "XXFA_ASSET.rdf",
+    "label": "Report"
+  },
+  {
+    "text": "XXBOM_COMPONENT.rdf",
+    "label": "Report"
+  },
+  {
+    "text": "XXWIP_JOB.rdf",
+    "label": "Report"
+  },
+  {
+    "text": "XXPO_PURCHASE.rdf",
+    "label": "Report"
+  },
+
+  {
+    "text": "XXHR_EMPLOYEE_FORM.fmb",
+    "label": "Form"
+  },
+  {
+    "text": "XXFA_ASSET_FORM.fmb",
+    "label": "Form"
+  },
+  {
+    "text": "XXPO_VENDOR_FORM.fmb",
+    "label": "Form"
+  },
+  {
+    "text": "XXAR_CUSTOMER_FORM.fmb",
+    "label": "Form"
+  },
+  {
+    "text": "XXGL_LEDGER_FORM.fmb",
+    "label": "Form"
+  },
+
+  {
+    "text": "XXHR_LIBRARY.pll",
+    "label": "Library"
+  },
+  {
+    "text": "XXFA_LIBRARY.pll",
+    "label": "Library"
+  },
+  {
+    "text": "XXPO_COMMON_LIBRARY.pll",
+    "label": "Library"
+  },
+  {
+    "text": "XXAR_COMMON_LIBRARY.pll",
+    "label": "Library"
+  },
+  {
+    "text": "XXGL_LIBRARY.pll",
+    "label": "Library"
+  },
+
+  {
+    "text": "XXHR_MAIN_MENU.mmb",
+    "label": "Menu"
+  },
+  {
+    "text": "XXFA_MAIN_MENU.mmb",
+    "label": "Menu"
+  },
+  {
+    "text": "XXPO_PROCUREMENT_MENU.mmb",
+    "label": "Menu"
+  },
+  {
+    "text": "XXAR_RECEIVABLES_MENU.mmb",
+    "label": "Menu"
+  },
+  {
+    "text": "XXGL_FINANCE_MENU.mmb",
+    "label": "Menu"
+  },
+
+  {
+    "text": "XX_EMPLOYEE_VIEW.vw",
+    "label": "View"
+  },
+  {
+    "text": "XX_ASSET_VIEW.vw",
+    "label": "View"
+  },
+  {
+    "text": "XX_VENDOR_VIEW.vw",
+    "label": "View"
+  },
+  {
+    "text": "XX_CUSTOMER_VIEW.vw",
+    "label": "View"
+  },
+  {
+    "text": "XX_LEDGER_VIEW.vw",
+    "label": "View"
+  },
+
+  {
+    "text": "XX_EMPLOYEE_SEQ.seq",
+    "label": "Sequence"
+  },
+  {
+    "text": "XX_VENDOR_SEQ.seq",
+    "label": "Sequence"
+  },
+  {
+    "text": "XX_CUSTOMER_SEQ.seq",
+    "label": "Sequence"
+  },
+  {
+    "text": "XX_LEDGER_SEQ.seq",
+    "label": "Sequence"
+  },
+  {
+    "text": "XX_ASSET_SEQ.seq",
+    "label": "Sequence"
+  },
+
+  {
+    "text": "XX_EMPLOYEE_SYN.syn",
+    "label": "Synonym"
+  },
+  {
+    "text": "XX_VENDOR_SYN.syn",
+    "label": "Synonym"
+  },
+  {
+    "text": "XX_CUSTOMER_SYN.syn",
+    "label": "Synonym"
+  },
+  {
+    "text": "XX_LEDGER_SYN.syn",
+    "label": "Synonym"
+  },
+  {
+    "text": "XX_ASSET_SYN.syn",
+    "label": "Synonym"
+  },
+
+  {
+    "text": "XX_EMPLOYEE_TABLE.sql",
+    "label": "Table"
+  },
+  {
+    "text": "XX_VENDOR_MASTER.sql",
+    "label": "Table"
+  },
+  {
+    "text": "XX_CUSTOMER_MASTER.sql",
+    "label": "Table"
+  },
+  {
+    "text": "XX_ASSET_MASTER.sql",
+    "label": "Table"
+  },
+  {
+    "text": "XX_LEDGER_MASTER.sql",
+    "label": "Table"
+  },
+
+  {
+    "text": "XX_EMPLOYEE_IDX.idx",
+    "label": "Index"
+  },
+  {
+    "text": "XX_VENDOR_IDX.idx",
+    "label": "Index"
+  },
+  {
+    "text": "XX_CUSTOMER_IDX.idx",
+    "label": "Index"
+  },
+  {
+    "text": "XX_ASSET_IDX.idx",
+    "label": "Index"
+  },
+  {
+    "text": "XX_LEDGER_IDX.idx",
+    "label": "Index"
+  },
+
+  {
+    "text": "XX_EMPLOYEE_TEMPLATE.xml",
+    "label": "XML Data Template"
+  },
+  {
+    "text": "XX_VENDOR_TEMPLATE.xml",
+    "label": "XML Data Template"
+  },
+  {
+    "text": "XX_CUSTOMER_TEMPLATE.xml",
+    "label": "XML Data Template"
+  },
+  {
+    "text": "XX_ASSET_TEMPLATE.xml",
+    "label": "XML Data Template"
+  },
+  {
+    "text": "XX_LEDGER_TEMPLATE.xml",
+    "label": "XML Data Template"
+  },
+
+  {
+    "text": "XX_EMPLOYEE_LAYOUT.rtf",
+    "label": "RTF Template"
+  },
+  {
+    "text": "XX_VENDOR_LAYOUT.rtf",
+    "label": "RTF Template"
+  },
+  {
+    "text": "XX_CUSTOMER_LAYOUT.rtf",
+    "label": "RTF Template"
+  },
+  {
+    "text": "XX_ASSET_LAYOUT.rtf",
+    "label": "RTF Template"
+  },
+  {
+    "text": "XX_LEDGER_LAYOUT.rtf",
+    "label": "RTF Template"
+  },
+
+  {
+    "text": "XX_EMPLOYEE_XDO.ldt",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XX_VENDOR_XDO.ldt",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XX_CUSTOMER_XDO.ldt",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XX_ASSET_XDO.ldt",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XX_LEDGER_XDO.ldt",
+    "label": "XML Publisher Layout"
+  },
+
+  {
+    "text": "XX_RESPONSIBILITY_UPLOAD.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_PROFILE_OPTION.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_VALUESET.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_REQUEST_GROUP.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_LOOKUP_TYPE.ldt",
+    "label": "LDT"
+  },
+
+  {
+    "text": "XXHR_EMPLOYEE.wft",
+    "label": "Workflow"
+  },
+  {
+    "text": "XXPO_APPROVAL_WORKFLOW.wft",
+    "label": "Workflow"
+  },
+  {
+    "text": "XXAR_COLLECTION.wft",
+    "label": "Workflow"
+  },
+  {
+    "text": "XXINV_REPLENISHMENT.wft",
+    "label": "Workflow"
+  },
+  {
+    "text": "XXFA_ASSET_TRANSFER.wft",
+    "label": "Workflow"
+  },
+
+  {
+    "text": "XXHR_BATCH.sh",
+    "label": "Shell Script"
+  },
+  {
+    "text": "XXPO_IMPORT_BATCH.sh",
+    "label": "Shell Script"
+  },
+  {
+    "text": "XXAR_EXPORT_BATCH.sh",
+    "label": "Shell Script"
+  },
+  {
+    "text": "XXINV_SYNC_BATCH.sh",
+    "label": "Shell Script"
+  },
+  {
+    "text": "XXFA_PROCESS.sh",
+    "label": "Shell Script"
+  },
+
+  {
+    "text": "XXHR_EMPLOYEE.java",
+    "label": "Java Source"
+  },
+  {
+    "text": "XXPO_VENDOR.java",
+    "label": "Java Source"
+  },
+  {
+    "text": "XXAR_CUSTOMER.java",
+    "label": "Java Source"
+  },
+  {
+    "text": "XXINV_ITEM.java",
+    "label": "Java Source"
+  },
+  {
+    "text": "XXFA_ASSET.java",
+    "label": "Java Source"
+  },
+
+  {
+    "text": "Employee Package Body",
+    "label": "Package Body"
+  },
+  {
+    "text": "Vendor Package Specification",
+    "label": "Package Specification"
+  },
+  {
+    "text": "Customer Data Procedure",
+    "label": "Procedure"
+  },
+  {
+    "text": "Employee Audit Trigger",
+    "label": "Trigger"
+  },
+  {
+    "text": "Vendor Validation Function",
+    "label": "Function"
+  },
+  {
+    "text": "Customer Reporting View",
+    "label": "View"
+  },
+  {
+    "text": "Employee Master Table",
+    "label": "Table"
+  },
+  {
+    "text": "Vendor Search Index",
+    "label": "Index"
+  },
+  {
+    "text": "Customer Number Sequence",
+    "label": "Sequence"
+  },
+  {
+    "text": "Public Synonym Definition",
+    "label": "Synonym"
+  },
+  {
+    "text": "XX_RESPONSIBILITY.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_SYSTEM_PROFILE.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_PROFILE_OPTION.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_LOOKUP_VALUES.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_VALUE_SET.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_REQUEST_GROUP.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_MENU_DEF.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_FORM_FUNCTION.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_CONCURRENT_PROGRAM.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_REQUEST_SET.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_STANDARD_LOOKUP.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_CUSTOM_LOOKUP.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_SUPPLIER_RESP.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_ORDER_MGMT_RESP.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_FINANCE_MENU.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_APPS_FUNCTION.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_CUSTOM_FUNCTION.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_SYSTEM_VALUESET.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_EMPLOYEE_VALUESET.ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "XX_VENDOR_VALUESET.ldt",
+    "label": "LDT"
+  },
+
+  {
+    "text": "FNDLOAD FILE",
+    "label": "LDT"
+  },
+  {
+    "text": "Loader Data File",
+    "label": "LDT"
+  },
+  {
+    "text": "Configuration Migration File",
+    "label": "LDT"
+  },
+  {
+    "text": "Responsibility LDT",
+    "label": "LDT"
+  },
+  {
+    "text": "Request Group LDT",
+    "label": "LDT"
+  },
+  {
+    "text": "Value Set LDT",
+    "label": "LDT"
+  },
+  {
+    "text": "Lookup LDT",
+    "label": "LDT"
+  },
+  {
+    "text": "Menu LDT",
+    "label": "LDT"
+  },
+  {
+    "text": "Function LDT",
+    "label": "LDT"
+  },
+  {
+    "text": "Concurrent Program LDT",
+    "label": "LDT"
+  },
+
+  {
+    "text": "Migration of responsibility using FNDLOAD",
+    "label": "LDT"
+  },
+  {
+    "text": "New lookup values deployed through ldt",
+    "label": "LDT"
+  },
+  {
+    "text": "Responsibility configuration file",
+    "label": "LDT"
+  },
+  {
+    "text": "Value set migration object",
+    "label": "LDT"
+  },
+  {
+    "text": "Request group migration",
+    "label": "LDT"
+  },
+  {
+    "text": "Concurrent program definition deployment",
+    "label": "LDT"
+  },
+  {
+    "text": "Function registration through FNDLOAD",
+    "label": "LDT"
+  },
+  {
+    "text": "Menu migration file",
+    "label": "LDT"
+  },
+  {
+    "text": "Application configuration LDT",
+    "label": "LDT"
+  },
+  {
+    "text": "Custom responsibility setup",
+    "label": "LDT"
+  },
+
+  {
+    "text": "XX_AP_INVOICE_XDO.ldt",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XX_AR_STATEMENT_XDO.ldt",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XX_VENDOR_XDO.ldt",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XX_PO_REPORT_XDO.ldt",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XX_GL_LAYOUT_XDO.ldt",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "BI Publisher Layout LDT",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XDO Layout File",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XML Publisher Layout Definition",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "Report Layout LDT",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text": "XDO Template Registration",
+    "label": "XML Publisher Layout"
+  },
+  {
+    "text":"FORM",
+    "label":"Form"
+  },
+  {
+    "text":"Report",
+    "label":"RDF"
+  }
+]
