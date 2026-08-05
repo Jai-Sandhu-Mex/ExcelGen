@@ -1,5 +1,7 @@
 import asyncio
 import os
+import pickle
+import re
 import openpyxl
 from playwright.async_api import async_playwright
 from openpyxl.styles import Font , PatternFill , Alignment , Border , Side
@@ -13,6 +15,25 @@ Email_Selector = "input[type='text']"
 Email_NXT_button = "button[type='submit']"
 url = ""
 ############################################################################################################
+
+# Load ML model
+_MODEL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "object_type_classifier.pkl")
+with open(_MODEL_PATH, "rb") as _f:
+    _ml_data = pickle.load(_f)
+_ml_model = _ml_data["model"]
+
+def ml_predict(text, threshold=0.3):
+    norm = str(text).strip().lower()
+    norm = re.sub(r"[_\-\.]", " ", norm)
+    norm = re.sub(r"\s+", " ", norm).strip()
+    if not norm:
+        return None
+    proba = _ml_model.predict_proba([norm])[0]
+    max_prob = max(proba)
+    if max_prob < threshold:
+        return None
+    return _ml_model.classes_[proba.argmax()]
+
 
 async def find_and_click_change(page, selector):
     try:
@@ -30,6 +51,88 @@ async def find_and_click_change(page, selector):
             return True
         except:
             continue
+
+
+async def search_chg(page, chg_number, search_selector):
+    """Search for a CHG number with retry logic."""
+    for attempt in range(3):
+        print(f"  Search attempt {attempt + 1}...")
+
+        # Click neutral spot and press Escape to close any dropdowns
+        try:
+            await page.mouse.click(50, 50)
+        except:
+            pass
+        await page.wait_for_timeout(500)
+        await page.keyboard.press("Escape")
+        for frame in page.frames:
+            try:
+                await frame.keyboard.press("Escape")
+            except:
+                pass
+        await page.wait_for_timeout(1000)
+
+        # Find search bar — main page then iframes
+        el = None
+        try:
+            el = await page.wait_for_selector(search_selector, timeout=5000)
+        except:
+            for frame in page.frames:
+                try:
+                    el = await frame.wait_for_selector(search_selector, timeout=3000)
+                    break
+                except:
+                    continue
+
+        if not el:
+            print(f"  Search bar not found on attempt {attempt + 1}")
+            await page.wait_for_timeout(2000)
+            continue
+
+        # Clear and fill search bar
+        await el.click(click_count=3)
+        await page.wait_for_timeout(300)
+        await el.fill("")
+        await page.wait_for_timeout(300)
+        await el.fill(chg_number)
+        await page.wait_for_timeout(500)
+
+        # Verify value was entered correctly
+        try:
+            current_val = await el.input_value()
+            if chg_number.lower() not in current_val.lower():
+                print(f"  Value mismatch — retrying...")
+                continue
+        except:
+            pass
+
+        await el.press("Enter")
+        await page.wait_for_timeout(5000)
+
+        # Close Exact Match dropdown
+        try:
+            await page.mouse.click(500, 50)
+        except:
+            pass
+        await page.wait_for_timeout(500)
+        await page.keyboard.press("Escape")
+        for frame in page.frames:
+            try:
+                await frame.keyboard.press("Escape")
+            except:
+                pass
+        await page.wait_for_timeout(1000)
+
+        print(f"  URL: {page.url}")
+        if "change_request" in page.url:
+            print(f"  ✓ On CHG page")
+            return True
+        else:
+            print(f"  Not on CHG page yet — retrying...")
+            await page.wait_for_timeout(2000)
+
+    print(f"  ❌ Failed to navigate to {chg_number} after 3 attempts")
+    return False
 
 
 def is_known_object_type(value):
@@ -194,59 +297,11 @@ async def run():
             ctask_number = record[0]
             print(f"\n→ Processing {chg_number} / {ctask_number}")
 
-            # Click a neutral spot to deselect any download focus, then Escape to close dropdown
-            try:
-                await page.mouse.click(50, 50)
-            except:
-                pass
-            await page.wait_for_timeout(500)
-
-            await page.keyboard.press("Escape")
-            for frame in page.frames:
-                try:
-                    await frame.keyboard.press("Escape")
-                except:
-                    pass
-            await page.wait_for_timeout(1000)
-
-            # Search for CHG — check main page and iframes
-            el = None
-            try:
-                el = await page.wait_for_selector(search_selector, timeout=8000)
-            except:
-                print("  Not on main page, checking iframes...")
-                for frame in page.frames:
-                    try:
-                        el = await frame.wait_for_selector(search_selector, timeout=5000)
-                        print(f"  ✓ Found search bar in iframe: {frame.url[:50]}")
-                        break
-                    except:
-                        continue
-
-            if not el:
-                print(f"  ❌ Could not find search bar for {chg_number} — skipping")
+            # Search with retry logic
+            success = await search_chg(page, chg_number, search_selector)
+            if not success:
+                print(f"  ❌ Skipping {chg_number}")
                 continue
-
-            await el.click(click_count=3)   # select existing text
-            await el.fill(chg_number)       # replace with new CHG number
-            await el.press("Enter")
-            await page.wait_for_timeout(5000)
-            print(f"  URL after search: {page.url}")
-
-            # Click neutral spot + Escape again to close "Exact Match" dropdown after Enter
-            try:
-                await page.mouse.click(500, 50)
-            except:
-                pass
-            await page.wait_for_timeout(500)
-            await page.keyboard.press("Escape")
-            for frame in page.frames:
-                try:
-                    await frame.keyboard.press("Escape")
-                except:
-                    pass
-            await page.wait_for_timeout(1000)
-            print(f"  ✓ On CHG page")
 
             # Scrape Requested By and Short Description
             requested_by = ""
@@ -307,6 +362,16 @@ async def run():
             total_objects = 0
             remark = ""
 
+            # Keywords to skip — header/title rows inside the object table
+            SKIP_KEYWORDS = [
+                "object migration list",
+                "compilation sequence",
+                "object name",
+                "object type",
+                "object version",
+                "migration instructions",
+            ]
+
             if downloaded_file and os.path.exists(downloaded_file):
                 wb = openpyxl.load_workbook(downloaded_file)
                 ws = wb.active
@@ -322,9 +387,18 @@ async def run():
                             in_object_table = True
 
                     if in_object_table:
+                        # Skip header and title rows
+                        row_text = " ".join([str(v).strip() for v in row_values if v]).lower()
+                        if any(skip in row_text for skip in SKIP_KEYWORDS):
+                            continue
+
                         for cell_val in row_values:
                             if is_known_object_type(cell_val):
                                 object_types.append(str(cell_val).strip())
+                                total_objects += 1
+                            elif ml_predict(cell_val):
+                                label = ml_predict(cell_val)
+                                object_types.append(f"{str(cell_val).strip()} ({label})")
                                 total_objects += 1
 
                 wb.close()
@@ -417,7 +491,6 @@ async def run():
         excel_output_path = os.path.join(os.getcwd(), f"Change_Requests_Final_{file_date_str}.xlsx")
         wb_out.save(excel_output_path)
         print(f"✅ Final Excel saved: {excel_output_path}")
-
 
         input("\nPress ENTER to close...")
         await browser.close()
