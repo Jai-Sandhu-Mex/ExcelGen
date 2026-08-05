@@ -35,9 +35,8 @@
 ![Playwright](https://img.shields.io/badge/Playwright-Automation-C00000?style=for-the-badge&logo=playwright&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![openpyxl](https://img.shields.io/badge/openpyxl-Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
-</div>
 ---
-
+</div>
 ## Overview
 
 This bot automates the most tedious part of the Oracle EBS migration process — manually collecting change request details from ServiceNow, cross-referencing Release Note attachments, and compiling everything into a formatted Excel report. What normally takes hours of copy-pasting is reduced to a single command.
