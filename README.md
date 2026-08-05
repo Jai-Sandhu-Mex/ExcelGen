@@ -30,12 +30,12 @@
 <br><br>     
   
 
-
+<div align="center">
 ![Python](https://img.shields.io/badge/Python-3.10+-1F3864?style=for-the-badge&logo=python&logoColor=white)
 ![Playwright](https://img.shields.io/badge/Playwright-Automation-C00000?style=for-the-badge&logo=playwright&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![openpyxl](https://img.shields.io/badge/openpyxl-Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
-
+</div>
 ---
 
 ## Overview
@@ -86,27 +86,6 @@ Generate formatted Excel report
 - Red title bar, navy column headers, bordered data rows
 - Auto-fills Migration Date with today's date
 - Handles missing attachments gracefully — adds "Please share the Release Note" remark
-
----
-
-## Project Structure
-
-```
-Change_Request_Excel_BOT/
-|
-|-- open_chrome.py                  Main bot — run this
-|-- object_type_model.pkl           Trained ML model (auto-loaded at startup)
-|
-|-- train_object_type_model.py      Retrain the ML model
-|-- extract_cells_for_labeling.py   Extract cell values from Excel files for labeling
-|-- merge_labeled_data.py           Merge newly labeled data into training set
-|-- object_type_training_data.csv   Labeled training dataset
-|
-|-- test_model_on_excel.py          Test model against real Release Note files
-|-- test_object_type_model.py       Interactive model tester
-|
-|-- downloads/                      Downloaded Release Notes (auto-created)
-```
 
 ---
 
@@ -193,9 +172,3 @@ python train_object_type_model.py
 - [pandas](https://pandas.pydata.org/) — data handling
 
 ---
-
-<div align="center">
-
-![footer](https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=100&section=footer&animation=twinkling)
-
-</div>
